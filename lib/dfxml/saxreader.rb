@@ -1,4 +1,15 @@
 require 'sax-machine'
+require 'time'
+
+def parse_iso8601 value
+  begin
+    Time.iso8601(value)
+  rescue
+    warn "Failed to parse date #{value.inspect}"
+    value
+  end
+end
+
 
 module Dfxml
   
@@ -48,6 +59,23 @@ module Dfxml
       # elements from fido extractor plugin
       # element "PUID", :as => :pronom_puid
       # element "PronomFormat", :as => :pronom_format
+      
+      def atime=(val)
+        @atime = parse_iso8601 val
+      end
+      
+      def crtime=(val)
+        @crtime = parse_iso8601 val
+      end
+      
+      def dtime=(val)
+        @dtime = parse_iso8601 val
+      end
+      
+      def mtime=(val)
+        @mtime = parse_iso8601 val
+      end
+      
     end
 
     class Volume
