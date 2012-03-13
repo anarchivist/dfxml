@@ -21,7 +21,7 @@ module Dfxml
   
   module SAXReader
 
-    class IndividualRun
+    class ByteRun
       include SAXMachine
       attribute :file_offset
       attribute :fs_offset
@@ -29,9 +29,9 @@ module Dfxml
       attribute :len
     end
     
-    class ByteRun
+    class ByteRunGroup
       include SAXMachine
-      elements :byte_run, :as => :runs, :class => IndividualRun
+      elements :byte_run, :as => :runs, :class => ByteRun
     end
 
     class FileObject
@@ -59,7 +59,7 @@ module Dfxml
       element :uid
       element :unalloc, :as => :unallocated
       element :used
-      element :byte_runs, :class => ByteRun
+      element :byte_runs, :class => ByteRunGroup
       element :hashdigest, :as => :md5, :with => {:type => "md5"}
       element :hashdigest, :as => :sha1, :with => {:type => "sha1"}
       # elements from fido extractor plugin
