@@ -30,7 +30,7 @@ module Dfxml
 
     class FileObject
       include SAXMachine
-      element :alloc
+      element :alloc, :as => :allocated
       element :atime
       element :compressed
       element :crtime
@@ -41,17 +41,17 @@ module Dfxml
       element :filesize
       element :fragments
       element :gid
-      element :id, :as => :fileid
+      element :id_
       element :inode
       element :libmagic
-      element :meta_type
+      #element :meta_type # ignore meta_type. values in TSK_FS_META_TYPE_ENUM
       element :mode
       element :mtime
-      element :name_type
+      element :name_type, :as => :type
       element :nlink
       element :partition
       element :uid
-      element :unalloc
+      element :unalloc, :as => :unallocated
       element :used
       element :byte_runs, :class => ByteRun
       element :hashdigest, :as => :md5, :with => {:type => "md5"}
@@ -64,6 +64,32 @@ module Dfxml
         @atime = parse_iso8601 val
       end
       
+      # We have to check for the presence of both alloc AND unalloc tags
+      # to determine whether the directory entry is actually allocated, given
+      # the weird way in which fiwalk tends to dump out this information
+      def allocated=(val)
+        @allocated = true ? val == '1' : false
+      end
+      
+      def unallocated=(val)
+        @allocated ||= false if val == '1'
+      end
+      
+      def allocated?
+        @allocated
+      end
+      
+      # functions of these forms don't work because they'll never get called
+      # unless the corresponding element exists. sax-machine should have a
+      # way to insert default values when appropriate.
+      # def compressed=(val)
+      #   @compressed = false ? val.nil? : true
+      # end
+      # 
+      # def compressed?
+      #   @compressed
+      # end
+      
       def crtime=(val)
         @crtime = parse_iso8601 val
       end
@@ -74,6 +100,22 @@ module Dfxml
       
       def mtime=(val)
         @mtime = parse_iso8601 val
+      end
+      
+      def type=(val)
+        @type = {
+          '-' => :unknown,
+          'r' => :file,
+          'd' => :directory,
+          'c' => :character_device,
+          'b' => :block_device,
+          'l' => :symlink,
+          'p' => :named_pipe,
+          's' => :shadow,
+          'h' => :socket,
+          'w' => :whiteout,
+          'v' => :tsk_virtual_file
+        }[val]
       end
       
     end
