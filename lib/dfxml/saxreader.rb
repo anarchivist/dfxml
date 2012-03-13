@@ -10,6 +10,12 @@ def parse_iso8601 value
   end
 end
 
+def isone?(val)
+  # Return true if something is one (number or string).
+  # Vased on Python isone function packaged in fiwalk's dfxml.py
+  # Unlike Python, we probably don't need to catch a TypeError exception.
+  true ? val.to_i == 1 : false
+end
 
 module Dfxml
   
@@ -64,31 +70,7 @@ module Dfxml
         @atime = parse_iso8601 val
       end
       
-      # We have to check for the presence of both alloc AND unalloc tags
-      # to determine whether the directory entry is actually allocated, given
-      # the weird way in which fiwalk tends to dump out this information
-      def allocated=(val)
-        @allocated = true ? val == '1' : false
       end
-      
-      def unallocated=(val)
-        @allocated ||= false if val == '1'
-      end
-      
-      def allocated?
-        @allocated
-      end
-      
-      # functions of these forms don't work because they'll never get called
-      # unless the corresponding element exists. sax-machine should have a
-      # way to insert default values when appropriate.
-      # def compressed=(val)
-      #   @compressed = false ? val.nil? : true
-      # end
-      # 
-      # def compressed?
-      #   @compressed
-      # end
       
       def crtime=(val)
         @crtime = parse_iso8601 val
@@ -102,6 +84,45 @@ module Dfxml
         @mtime = parse_iso8601 val
       end
       
+      # Begin boolean methods
+      #
+      # Convenience methods for flags expressed in the metadata layer of
+      # file systems. However, they're not terribly robust and are considered
+      # workarounds for the way fiwalk expresses metadata-layer flags in
+      # its output. In fiwalk-generated dfxml, when an element should be
+      # considered true, the element contains the value "1". However, the
+      # expression in output doesn't necessarily fit with what humans expect.
+      # For example, the allocated/unallocated flags are expressed in
+      # fiwalk's output as follows:
+      #
+      # - when allocated: <alloc>1</alloc>
+      # - when unallocated: <unalloc>1</unalloc>
+      # 
+      # For more clarification, see fiwalk_tsk.cpp's handling for
+      # fs_file->meta in process_tsk_file.
+            
+      def allocated?
+        isone?(@alloc) && !isone?(@unalloc)
+      end
+      
+      def compressed?
+        isone?(@compressed)
+      end
+      
+      def encrypted?
+        # encrypted is not a flag, but we'll treat it like one.
+        isone?(@encrypted)
+      end
+      
+      def orphan?
+        isone?(@orphan)
+      end
+      
+      def used?
+        isone?(@used) && !isone?(@unused)
+      end
+      
+      # End boolean methods      
       
       def type
         # def meta_type=(val)
