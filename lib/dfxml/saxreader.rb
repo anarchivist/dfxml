@@ -36,12 +36,13 @@ module Dfxml
 
     class FileObject
       include SAXMachine
-      element :alloc, :as => :allocated
-      element :atime
-      element :compressed
-      element :crtime
-      element :ctime
-      element :dtime
+      element :alloc # TSK_FS_META.flags
+      element :atime # file content access time
+      element :compressed # TSK_FS_META.flags
+      element :bkup_time # HFS+ only
+      element :crtime # created time
+      element :ctime # file/metadata status change time
+      element :dtime # deletion time (ext only)
       element :encrypted
       element :filename
       element :filesize
@@ -50,26 +51,38 @@ module Dfxml
       element :id_
       element :inode
       element :libmagic
-      #element :meta_type # ignore meta_type. values in TSK_FS_META_TYPE_ENUM
+      element :link_target
+      element :meta_type
       element :mode
-      element :mtime
-      element :name_type, :as => :type
-      element :nlink
+      element :mtime # content modification time
+      element :name_type
+      element :nlink # number of links to this file 
+      element :orphan # TSK_FS_META.flags
       element :partition
+      element :seq # sequence number (ntfs only)
       element :uid
-      element :unalloc, :as => :unallocated
-      element :used
+      element :unalloc # TSK_FS_META.flags
+      element :unused # TSK_FS_META.flags
+      element :used # TSK_FS_META.flags
       element :byte_runs, :class => ByteRunGroup
       element :hashdigest, :as => :md5, :with => {:type => "md5"}
       element :hashdigest, :as => :sha1, :with => {:type => "sha1"}
+      element :hashdigest, :as => :sha256, :with => {:type => "sha256"}
       # elements from fido extractor plugin
       # element "PUID", :as => :pronom_puid
       # element "PronomFormat", :as => :pronom_format
+      
+      # Begin timestamp methods
+      #
+      # It would be preferable to have a way to call these matching on
+      # element name.
       
       def atime=(val)
         @atime = parse_iso8601 val
       end
       
+      def bkup_time=(val)
+        @bkup_time = parse_iso8601 val
       end
       
       def crtime=(val)
@@ -83,6 +96,8 @@ module Dfxml
       def mtime=(val)
         @mtime = parse_iso8601 val
       end
+      
+      # End timestamp methods
       
       # Begin boolean methods
       #
