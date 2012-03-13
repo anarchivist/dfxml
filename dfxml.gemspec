@@ -1,1 +1,0 @@
-require File.expand_path('../lib/dfxml/version', __FILE__)
