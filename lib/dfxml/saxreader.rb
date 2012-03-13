@@ -102,20 +102,17 @@ module Dfxml
         @mtime = parse_iso8601 val
       end
       
-      def type=(val)
-        @type = {
-          '-' => :unknown,
-          'r' => :file,
-          'd' => :directory,
-          'c' => :character_device,
-          'b' => :block_device,
-          'l' => :symlink,
-          'p' => :named_pipe,
-          's' => :shadow,
-          'h' => :socket,
-          'w' => :whiteout,
-          'v' => :tsk_virtual_file
-        }[val]
+      
+      def type
+        # def meta_type=(val)
+        #   @meta_type ||= Dfxml::NumericFileTypes[val.to_i]
+        # end
+        # 
+        # def name_type=(val)
+        #   @name_type ||= Dfxml::CharacterFileTypes[val]
+        # end
+        
+        Dfxml::CharacterFileTypes[@name_type] ||= Dfxml::NumericFileTypes[@meta_type.to_i]
       end
       
     end
@@ -125,12 +122,22 @@ module Dfxml
       attribute :offset
       element :partition_offset
       element :block_size
-      element :ftype_str, :as => :ftype
+      element :ftype
+      element :ftype_str      
       element :block_count
       element :first_block
       element :last_block
       element :allocated_only
       elements :fileobject, :as => :fileobjects, :class => FileObject
+      
+      def ftype=(val)
+        @ftype ||= Dfxml::NumericFileSystemTypes[val.to_i]
+      end
+      
+      def ftype_str=(val)
+        @ftype ||= val.to_sym
+      end
+      
     end
     
     class ExecutionEnvironment
