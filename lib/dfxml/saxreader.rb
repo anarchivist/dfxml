@@ -28,12 +28,12 @@ module Dfxml
     class FileObject
       include SAXMachine
       element :alloc # TSK_FS_META.flags
-      element :atime # file content access time
+      element :atime, :class => Time # file content access time
       element :compressed # TSK_FS_META.flags
-      element :bkup_time # HFS+ only
-      element :crtime # created time
-      element :ctime # file/metadata status change time
-      element :dtime # deletion time (ext only)
+      element :bkup_time, :class => Time # HFS+ only
+      element :crtime, :class => Time # created time
+      element :ctime, :class => Time # file/metadata status change time
+      element :dtime, :class => Time # deletion time (ext only)
       element :encrypted
       element :filename
       element :filesize
@@ -45,7 +45,7 @@ module Dfxml
       element :link_target
       element :meta_type
       element :mode
-      element :mtime # content modification time
+      element :mtime, :class => Time # content modification time
       element :name_type
       element :nlink # number of links to this file 
       element :orphan # TSK_FS_META.flags
@@ -67,27 +67,27 @@ module Dfxml
       #
       # It would be preferable to have a way to call these matching on
       # element name.
-      
-      def atime=(val)
-        @atime = Time.parse(val)
-      end
-      
-      def bkup_time=(val)
-        @bkup_time = Time.parse(val)
-      end
-      
-      def crtime=(val)
-        @crtime = Time.parse(val)
-      end
-      
-      def dtime=(val)
-        @dtime = Time.parse(val)
-      end
-      
-      def mtime=(val)
-        @mtime = Time.parse(val)
-      end
-      
+      # 
+      # def atime=(val)
+      #   @atime = Time.parse(val)
+      # end
+      # 
+      # def bkup_time=(val)
+      #   @bkup_time = Time.parse(val)
+      # end
+      # 
+      # def crtime=(val)
+      #   @crtime = Time.parse(val)
+      # end
+      # 
+      # def dtime=(val)
+      #   @dtime = Time.parse(val)
+      # end
+      # 
+      # def mtime=(val)
+      #   @mtime = Time.parse(val)
+      # end
+      # 
       # End timestamp methods
       
       # Begin boolean methods
