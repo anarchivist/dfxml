@@ -12,7 +12,7 @@ end
 
 def isone?(val)
   # Return true if something is one (number or string).
-  # Vased on Python isone function packaged in fiwalk's dfxml.py
+  # Based on Python isone function packaged in fiwalk's dfxml.py
   # Unlike Python, we probably don't need to catch a TypeError exception.
   true ? val.to_i == 1 : false
 end
