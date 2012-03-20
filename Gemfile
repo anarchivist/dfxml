@@ -4,7 +4,7 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem "nokogiri", "~> 1.5.0"
-gem "sax-machine"
+gem "sax-machine", :git => "git://github.com/anarchivist/sax-machine.git"
 gem "fastercsv", ">= 0", :platforms => :ruby_18
 
 # Add dependencies to develop your gem here.
