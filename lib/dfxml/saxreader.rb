@@ -1,15 +1,6 @@
 require 'sax-machine'
 require 'time'
 
-def parse_iso8601 value
-  begin
-    Time.iso8601(value)
-  rescue
-    warn "Failed to parse date #{value.inspect}"
-    value
-  end
-end
-
 def isone?(val)
   # Return true if something is one (number or string).
   # Based on Python isone function packaged in fiwalk's dfxml.py
@@ -78,23 +69,23 @@ module Dfxml
       # element name.
       
       def atime=(val)
-        @atime = parse_iso8601 val
+        @atime = Time.parse(val)
       end
       
       def bkup_time=(val)
-        @bkup_time = parse_iso8601 val
+        @bkup_time = Time.parse(val)
       end
       
       def crtime=(val)
-        @crtime = parse_iso8601 val
+        @crtime = Time.parse(val)
       end
       
       def dtime=(val)
-        @dtime = parse_iso8601 val
+        @dtime = Time.parse(val)
       end
       
       def mtime=(val)
-        @mtime = parse_iso8601 val
+        @mtime = Time.parse(val)
       end
       
       # End timestamp methods
