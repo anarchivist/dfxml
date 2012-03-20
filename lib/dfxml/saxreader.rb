@@ -14,10 +14,12 @@ module Dfxml
 
     class ByteRun
       include SAXMachine
-      attribute :file_offset
-      attribute :fs_offset
-      attribute :img_offset
-      attribute :len
+      # for now, these don't get coerced to Integers because sax-machine
+      # doesn't handle class association for attributes
+      attribute :file_offset, :class => Integer
+      attribute :fs_offset, :class => Integer
+      attribute :img_offset, :class => Integer
+      attribute :len, :class => Integer
     end
     
     class ByteRunGroup
@@ -36,22 +38,22 @@ module Dfxml
       element :dtime, :class => Time # deletion time (ext only)
       element :encrypted
       element :filename
-      element :filesize
-      element :fragments
-      element :gid
-      element :id_
-      element :inode
+      element :filesize, :class => Integer
+      element :fragments, :class => Integer
+      element :gid, :class => Integer
+      element :id_, :class => Integer
+      element :inode, :class => Integer
       element :libmagic
       element :link_target
-      element :meta_type
-      element :mode
+      element :meta_type, :class => Integer
+      element :mode # don't coerce to integer, because it's octal
       element :mtime, :class => Time # content modification time
       element :name_type
-      element :nlink # number of links to this file 
+      element :nlink, :class => Integer # number of links to this file 
       element :orphan # TSK_FS_META.flags
-      element :partition
-      element :seq # sequence number (ntfs only)
-      element :uid
+      element :partition, :class => Integer
+      element :seq, :class => Integer # sequence number (ntfs only)
+      element :uid, :class => Integer
       element :unalloc # TSK_FS_META.flags
       element :unused # TSK_FS_META.flags
       element :used # TSK_FS_META.flags
@@ -146,17 +148,20 @@ module Dfxml
 
     class Volume
       include SAXMachine
-      attribute :offset
-      element :partition_offset
-      element :block_size
-      element :ftype
+      attribute :offset, :class => Integer
+      element :partition_offset, :class => Integer
+      element :block_size, :class => Integer
+      element :ftype, :class => Integer
       element :ftype_str      
-      element :block_count
-      element :first_block
-      element :last_block
+      element :block_count, :class => Integer
+      element :first_block, :class => Integer
+      element :last_block, :class => Integer
       element :allocated_only
       elements :fileobject, :as => :fileobjects, :class => FileObject
       
+      def allocated_only?
+        isone?(@allocated_only)
+      end
       def ftype=(val)
         @ftype ||= Dfxml::NumericFileSystemTypes[val.to_i]
       end
@@ -175,7 +180,7 @@ module Dfxml
       element :host
       element :arch
       element :command_line
-      element :start_time
+      element :start_time, :class => Time
     end
     
     class BuildLibrary
@@ -210,15 +215,15 @@ module Dfxml
     
     class RuntimeStatistics
       include SAXMachine
-      element :user_seconds
-      element :system_seconds
-      element :maxrss
-      element :reclaims
-      element :faults
-      element :swaps
-      element :inputs
-      element :outputs
-      element :stop_time
+      element :user_seconds, :class => Integer
+      element :system_seconds, :class => Integer
+      element :maxrss, :class => Integer
+      element :reclaims, :class => Integer
+      element :faults, :class => Integer
+      element :swaps, :class => Integer
+      element :inputs, :class => Integer
+      element :outputs, :class => Integer
+      element :stop_time, :class => Time
     end
     
     class DFXML
