@@ -2,6 +2,8 @@ require 'nokogiri'
 require 'dfxml'
 
 # Based on http://stackoverflow.com/questions/9199859#9223767
+
+file = ARGV[0]
 reader = Nokogiri::XML::Reader(file)
 extent = 0
 count = 0
