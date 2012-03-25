@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    fastercsv (1.5.4)
     git (1.2.5)
     jeweler (1.8.3)
       bundler (~> 1.0)
@@ -26,7 +25,6 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0.0)
-  fastercsv
   jeweler (~> 1.8.3)
   nokogiri (~> 1.5.0)
   rdoc (~> 3.12)

@@ -5,7 +5,6 @@ source "http://rubygems.org"
 
 gem "nokogiri", "~> 1.5.0"
 gem "sax-machine"
-gem "fastercsv", ">= 0", :platforms => :ruby_18
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
