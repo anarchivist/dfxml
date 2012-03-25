@@ -10,7 +10,7 @@ end
 
 module Dfxml
   
-  module SAXReader
+  module Parser
 
     class ByteRun
       include SAXMachine
@@ -131,14 +131,6 @@ module Dfxml
       # End boolean methods      
       
       def type
-        # def meta_type=(val)
-        #   @meta_type ||= Dfxml::NumericFileTypes[val.to_i]
-        # end
-        # 
-        # def name_type=(val)
-        #   @name_type ||= Dfxml::CharacterFileTypes[val]
-        # end
-        
         Dfxml::CharacterFileTypes[@name_type] ||= Dfxml::NumericFileTypes[@meta_type.to_i]
       end
       
