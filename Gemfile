@@ -3,7 +3,7 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
-gem "nokogiri", "~> 1.5.0"
+gem "nokogiri"
 gem "sax-machine"
 
 # Add dependencies to develop your gem here.
@@ -11,6 +11,6 @@ gem "sax-machine"
 group :development do
   gem "shoulda", ">= 0"
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0.0"
+  gem "bundler"
   gem "jeweler", "~> 1.8.3"
 end
