@@ -16,6 +16,6 @@ Until this line is removed from the README it should be considered as under extr
 
 == Copyright
 
-Copyright (c) 2012 Mark A. Matienzo. See LICENSE.txt for
+Copyright (c) 2012-2013 Mark A. Matienzo. See LICENSE.txt for
 further details.
 
