@@ -14,10 +14,10 @@ module Dfxml
 
     class ByteRun
       include SAXMachine
-      attribute :file_offset
-      attribute :fs_offset
-      attribute :img_offset
-      attribute :len
+      attribute :file_offset, :class => Integer
+      attribute :fs_offset, :class => Integer
+      attribute :img_offset, :class => Integer
+      attribute :len, :as => :length, :class => Integer
     end
     
     class ByteRunGroup
@@ -25,33 +25,44 @@ module Dfxml
       elements :byte_run, :as => :runs, :class => ByteRun
     end
 
+    class ParentObject
+      include SAXMachine
+      element :inode, :class => Integer
+    end
+
     class FileObject
       include SAXMachine
       element :alloc # TSK_FS_META.flags
       element :atime # file content access time
+      element :atime, :value => :prec, :as => :atime_prec
       element :compressed # TSK_FS_META.flags
       element :bkup_time # HFS+ only
       element :crtime # created time
+      element :crtime, :value => :prec, :as => :crtime_prec
       element :ctime # file/metadata status change time
+      element :ctime, :value => :prec, :as => :ctime_prec
       element :dtime # deletion time (ext only)
+      element :dtime, :value => :prec, :as => :dtime_prec
       element :encrypted
       element :filename
-      element :filesize
-      element :fragments
-      element :gid
-      element :id_
-      element :inode
+      element :filesize, :class => Integer
+      element :fragments, :class => Integer
+      element :gid, :class => Integer
+      element :id_, :class => Integer
+      element :inode, :class => Integer
       element :libmagic
       element :link_target
-      element :meta_type
+      element :meta_type, :class => Integer
       element :mode
       element :mtime # content modification time
+      element :mtime, :value => :prec, :as => :mtime_prec
       element :name_type
-      element :nlink # number of links to this file 
+      element :nlink, :class => Integer # number of links to this file 
       element :orphan # TSK_FS_META.flags
+      element :parent_object, :class => ParentObject
       element :partition
-      element :seq # sequence number (ntfs only)
-      element :uid
+      element :seq, :class => Integer # sequence number (ntfs only)
+      element :uid, :class => Integer
       element :unalloc # TSK_FS_META.flags
       element :unused # TSK_FS_META.flags
       element :used # TSK_FS_META.flags
@@ -141,13 +152,14 @@ module Dfxml
     class Volume
       include SAXMachine
       attribute :offset
-      element :partition_offset
-      element :block_size
-      element :ftype
-      element :ftype_str      
-      element :block_count
-      element :first_block
-      element :last_block
+      element :partition_offset, :class => Integer
+      element :sector_size, :class => Integer
+      element :block_size, :class => Integer
+      element :ftype, :class => Integer
+      element :ftype_str  
+      element :block_count, :class => Integer
+      element :first_block, :class => Integer
+      element :last_block, :class => Integer
       element :allocated_only
       elements :fileobject, :as => :fileobjects, :class => FileObject
       
