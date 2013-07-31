@@ -1,0 +1,564 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dfxml version='1.0'>
+  <metadata 
+  xmlns='http://www.forensicswiki.org/wiki/Category:Digital_Forensics_XML'
+  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+  xmlns:dc='http://purl.org/dc/elements/1.1/'>
+    <dc:type>Disk Image</dc:type>
+  </metadata>
+  <creator version='1.0'>
+    <program>fiwalk</program>
+    <version>4.1.0</version>
+    <build_environment>
+      <compiler>GCC 4.6</compiler>
+      <library name="afflib" version="3.7.1"/>
+      <library name="libewf" version="20130128"/>
+    </build_environment>
+    <execution_environment>
+      <command_line>fiwalk -fxc /opt/fiwalk-dgi/ficonfig.txt 20100408-36301.0001.dd.001 20100408-36301.0001.dd.001.csv 20100408-36301.0001.dd.001.txt 20100408-36301.0001.dd.002 20100408-36301.0001.dd.003 20100408-36301.0001.dd.xml</command_line>
+      <start_time>2013-07-11T16:15:57Z</start_time>
+    </execution_environment>
+  </creator>
+<!-- Reading configuration file /opt/fiwalk-dgi/ficonfig.txt -->
+<!-- pattern: *  method: dgi  path: python /opt/fiwalk-dgi/python/accession.py -->
+  <source>
+    <image_filename>20100408-36301.0001.dd.001</image_filename>
+  </source>
+<!-- fs start: 0 -->
+  <volume offset='0'>
+    <partition_offset>0</partition_offset>
+    <sector_size>512</sector_size>
+    <block_size>4096</block_size>
+    <ftype>8</ftype>
+    <ftype_str>fat32</ftype_str>
+    <block_count>7826049</block_count>
+    <first_block>0</first_block>
+    <last_block>7826048</last_block>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>HP v125w    (Volume Label Entry)</filename>
+      <partition>1</partition>
+      <id>1</id>
+      <name_type>r</name_type>
+      <filesize>0</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>3</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2009-10-22T12:55:52</mtime>
+      <libmagic>empty </libmagic>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>janephillips</filename>
+      <partition>1</partition>
+      <id>2</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>5</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7831552' img_offset='7831552' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>ecec71518c56a41340f069f12166e2ab</hashdigest>
+      <hashdigest type='sha1'>ec9130749ff5f4c1ec104c041773d96706942165</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/.</filename>
+      <partition>1</partition>
+      <id>3</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>5</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7831552' img_offset='7831552' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>ecec71518c56a41340f069f12166e2ab</hashdigest>
+      <hashdigest type='sha1'>ec9130749ff5f4c1ec104c041773d96706942165</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/..</filename>
+      <partition>1</partition>
+      <id>4</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>2</inode>
+      <meta_type>2</meta_type>
+      <mode>0</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7827456' img_offset='7827456' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>ae28e6cc4fde66b67b72bd8dcf21ba8e</hashdigest>
+      <hashdigest type='sha1'>7003336d0f5d0bbea228294eafb8eee4327321f4</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/text</filename>
+      <partition>1</partition>
+      <id>5</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>133</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7835648' img_offset='7835648' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>d51db64da0b34bf3d83dc53bd2c21f73</hashdigest>
+      <hashdigest type='sha1'>df04cd316a689cefe8e3b354dc4fd9849dcb5426</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>133</inode>
+      </parent_object>
+      <filename>janephillips/text/.</filename>
+      <partition>1</partition>
+      <id>6</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>133</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7835648' img_offset='7835648' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>d51db64da0b34bf3d83dc53bd2c21f73</hashdigest>
+      <hashdigest type='sha1'>df04cd316a689cefe8e3b354dc4fd9849dcb5426</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>133</inode>
+      </parent_object>
+      <filename>janephillips/text/..</filename>
+      <partition>1</partition>
+      <id>7</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>5</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7831552' img_offset='7831552' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>ecec71518c56a41340f069f12166e2ab</hashdigest>
+      <hashdigest type='sha1'>ec9130749ff5f4c1ec104c041773d96706942165</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>133</inode>
+      </parent_object>
+      <filename>janephillips/text/Allison Kennedy.txt</filename>
+      <partition>1</partition>
+      <id>8</id>
+      <name_type>r</name_type>
+      <filesize>194163</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>263</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:02:06</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>HTML document, Non-ISO extended-ASCII text, with very long lines, with CRLF, NEL line terminators </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7839744' img_offset='7839744' len='194163'/>
+      </byte_runs>
+      <hashdigest type='md5'>09281847eca043af4ececcaa1f586c94</hashdigest>
+      <hashdigest type='sha1'>5b9b5108655a63b446bd97b09db102637a719930</hashdigest>
+<!-- plugin_process -->
+      <virusScannerSignatureDate>2013-07-11T10:13:45</virusScannerSignatureDate>
+      <pronomSignatureName>HTML pre-2.0</pronomSignatureName>
+      <pronomFormatAlias>HTML</pronomFormatAlias>
+      <pronomTotalMatches>1</pronomTotalMatches>
+      <pronomMatchType>signature</pronomMatchType>
+      <pronomSoftware>fido 1.0.0</pronomSoftware>
+      <pronomFormatName>Hypertext Markup Language</pronomFormatName>
+      <pronomPuid>fmt/96</pronomPuid>
+      <virusScannerSignatureVersion>17490</virusScannerSignatureVersion>
+      <pronomFormatMimeType>text/html</pronomFormatMimeType>
+      <virusScannerVersion>ClamAV 0.97.8</virusScannerVersion>
+      <virusFound>false</virusFound>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/eudora7</filename>
+      <partition>1</partition>
+      <id>9</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>134</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:41</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='8036352' img_offset='8036352' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>50b28ede533b56bb3230662e52a5c413</hashdigest>
+      <hashdigest type='sha1'>2ab56f7b3ff95b5678b0aeac6092525d65a933bf</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>134</inode>
+      </parent_object>
+      <filename>janephillips/eudora7/.</filename>
+      <partition>1</partition>
+      <id>10</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>134</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:41</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='8036352' img_offset='8036352' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>50b28ede533b56bb3230662e52a5c413</hashdigest>
+      <hashdigest type='sha1'>2ab56f7b3ff95b5678b0aeac6092525d65a933bf</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>134</inode>
+      </parent_object>
+      <filename>janephillips/eudora7/..</filename>
+      <partition>1</partition>
+      <id>11</id>
+      <name_type>d</name_type>
+      <filesize>4096</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>5</inode>
+      <meta_type>2</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:21:42</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:40</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='7831552' img_offset='7831552' len='4096'/>
+      </byte_runs>
+      <hashdigest type='md5'>ecec71518c56a41340f069f12166e2ab</hashdigest>
+      <hashdigest type='sha1'>ec9130749ff5f4c1ec104c041773d96706942165</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>134</inode>
+      </parent_object>
+      <filename>janephillips/eudora7/Jane Phillips.mbx</filename>
+      <partition>1</partition>
+      <id>12</id>
+      <name_type>r</name_type>
+      <filesize>278371</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>6535</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2008-11-05T19:56:32</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:41</crtime>
+      <libmagic>HTML document, Non-ISO extended-ASCII text, with very long lines, with CRLF, NEL line terminators </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='8040448' img_offset='8040448' len='278371'/>
+      </byte_runs>
+      <hashdigest type='md5'>f0cb92f709c47f09e543615257531d08</hashdigest>
+      <hashdigest type='sha1'>8afe5717febcb06138e70ca0a764904142db3025</hashdigest>
+<!-- plugin_process -->
+      <virusScannerSignatureDate>2013-07-11T10:13:45</virusScannerSignatureDate>
+      <pronomTotalMatches>0</pronomTotalMatches>
+      <pronomMatchType>fail</pronomMatchType>
+      <pronomSoftware>fido 1.0.0</pronomSoftware>
+      <virusScannerSignatureVersion>17490</virusScannerSignatureVersion>
+      <virusScannerVersion>ClamAV 0.97.8</virusScannerVersion>
+      <virusFound>false</virusFound>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>134</inode>
+      </parent_object>
+      <filename>janephillips/eudora7/Jane Phillips.toc</filename>
+      <partition>1</partition>
+      <id>13</id>
+      <name_type>r</name_type>
+      <filesize>15800</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>6538</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-30T23:36:14</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:21:41</crtime>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='8318976' img_offset='8318976' len='15800'/>
+      </byte_runs>
+      <hashdigest type='md5'>44892b0903732b3a9450108bd6a922dc</hashdigest>
+      <hashdigest type='sha1'>0ed9d2a4a47af381b82ce7c7c280ab7b356712fa</hashdigest>
+<!-- plugin_process -->
+      <virusScannerSignatureDate>2013-07-11T10:13:45</virusScannerSignatureDate>
+      <pronomTotalMatches>0</pronomTotalMatches>
+      <pronomMatchType>fail</pronomMatchType>
+      <pronomSoftware>fido 1.0.0</pronomSoftware>
+      <virusScannerSignatureVersion>17490</virusScannerSignatureVersion>
+      <virusScannerVersion>ClamAV 0.97.8</virusScannerVersion>
+      <virusFound>false</virusFound>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/janephillips.rtf</filename>
+      <partition>1</partition>
+      <id>14</id>
+      <name_type>r</name_type>
+      <filesize>0</filesize>
+      <unalloc>1</unalloc>
+      <used>1</used>
+      <inode>137</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>0</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:24:44</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:24:43</crtime>
+      <libmagic>empty </libmagic>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>5</inode>
+      </parent_object>
+      <filename>janephillips/janephillips.rtf</filename>
+      <partition>1</partition>
+      <id>15</id>
+      <name_type>r</name_type>
+      <filesize>322</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>140</inode>
+      <meta_type>1</meta_type>
+      <mode>511</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <mtime prec="2">2010-03-31T01:24:44</mtime>
+      <atime prec="86400">2010-03-30T04:00:00</atime>
+      <crtime prec="2">2010-03-31T01:24:43</crtime>
+      <libmagic>Rich Text Format data, version 1, ANSI </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='8335360' img_offset='8335360' len='322'/>
+      </byte_runs>
+      <hashdigest type='md5'>7afc8eca6110dc8af40ae1d8e12fb91b</hashdigest>
+      <hashdigest type='sha1'>8b659e428e361f5f0f31c3669bbb4049710b55f8</hashdigest>
+<!-- plugin_process -->
+      <virusScannerSignatureDate>2013-07-11T10:13:45</virusScannerSignatureDate>
+      <pronomSignatureName>RTF 1.5 - 1.6 (generic)</pronomSignatureName>
+      <pronomFormatAlias>RTF (1.6), RTF (2000)</pronomFormatAlias>
+      <pronomTotalMatches>2</pronomTotalMatches>
+      <pronomFormatVersion>1.6</pronomFormatVersion>
+      <pronomMatchType>signature</pronomMatchType>
+      <pronomSoftware>fido 1.0.0</pronomSoftware>
+      <pronomFormatName>Rich Text Format</pronomFormatName>
+      <pronomPuid>fmt/51</pronomPuid>
+      <virusScannerSignatureVersion>17490</virusScannerSignatureVersion>
+      <pronomFormatMimeType>application/rtf</pronomFormatMimeType>
+      <virusScannerVersion>ClamAV 0.97.8</virusScannerVersion>
+      <virusFound>false</virusFound>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>$MBR</filename>
+      <partition>1</partition>
+      <id>16</id>
+      <name_type>v</name_type>
+      <filesize>512</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>124972179</inode>
+      <meta_type>10</meta_type>
+      <mode>0</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <libmagic>x86 boot sector, code offset 0x58, OEM-ID &quot;MSDOS5.0&quot;, sectors/cluster 8, Media descriptor 0xf8, heads 255, hidden sectors 63, sectors 7826049 (volumes &gt; 32 MB) , FAT (32 bit), sectors/FAT 7628, serial number 0x6cf84d4c, unlabeled </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='0' img_offset='0' len='512'/>
+      </byte_runs>
+      <hashdigest type='md5'>b7358e9e2f23bdb86eb55940b8ae1150</hashdigest>
+      <hashdigest type='sha1'>9330ee4551746769d9309750e82a869b0a3ff245</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>$FAT1</filename>
+      <partition>1</partition>
+      <id>17</id>
+      <name_type>v</name_type>
+      <filesize>3905536</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>124972180</inode>
+      <meta_type>10</meta_type>
+      <mode>0</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='16384' img_offset='16384' len='3905536'/>
+      </byte_runs>
+      <hashdigest type='md5'>e758c65bb431fc903a6bc97a52058aec</hashdigest>
+      <hashdigest type='sha1'>6495a4aaf9e087446e3199835706c7cde693e499</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>$FAT2</filename>
+      <partition>1</partition>
+      <id>18</id>
+      <name_type>v</name_type>
+      <filesize>3905536</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>124972181</inode>
+      <meta_type>10</meta_type>
+      <mode>0</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <libmagic>data </libmagic>
+      <byte_runs>
+       <byte_run file_offset='0' fs_offset='3921920' img_offset='3921920' len='3905536'/>
+      </byte_runs>
+      <hashdigest type='md5'>e758c65bb431fc903a6bc97a52058aec</hashdigest>
+      <hashdigest type='sha1'>6495a4aaf9e087446e3199835706c7cde693e499</hashdigest>
+    </fileobject>
+    <fileobject>
+      <parent_object>
+        <inode>2</inode>
+      </parent_object>
+      <filename>$OrphanFiles</filename>
+      <partition>1</partition>
+      <id>19</id>
+      <name_type>d</name_type>
+      <filesize>0</filesize>
+      <alloc>1</alloc>
+      <used>1</used>
+      <inode>124972182</inode>
+      <meta_type>2</meta_type>
+      <mode>0</mode>
+      <nlink>1</nlink>
+      <uid>0</uid>
+      <gid>0</gid>
+      <libmagic>empty </libmagic>
+    </fileobject>
+  </volume>
+<!-- end of volume -->
+<!-- clock: 137 -->
+</dfxml>
